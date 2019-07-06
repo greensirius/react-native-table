@@ -1,29 +1,14 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import Cell from './components/Cell';
+import Row from './components/Row';
+import {userArrayList, userObjectList} from './fixtures/user-list';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Cell
-        containerStyle={{
-          backgroundColor: '#1DE'
-        }}
-      >
-        Cell 1
-      </Cell>
-      <Cell
-        containerStyle={{backgroundColor: '#DDE'}}
-        contentStyle={{color: '#222'}}
-      >
-        Cell 2
-      </Cell>
-      <Cell
-        containerStyle={{
-          backgroundColor: '#DAEAAE'
-        }}
-      >
-        Cell 3
-      </Cell>
+      <Row rowData={userObjectList[0]} rowStyle={{backgroundColor: '#0AF'}} />
+      <Row rowData={userArrayList[0]} rowStyle={{backgroundColor: '#DEF'}} />
+      <Row rowData={userObjectList[0]} rowStyle={{backgroundColor: '#0AF'}} />
+      <Row rowData={userArrayList[0]} rowStyle={{backgroundColor: '#DEF'}} />
     </View>
   );
 }
@@ -32,8 +17,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 60,
-    alignItems: 'stretch',
-    flexDirection: 'row',
     backgroundColor: '#FFF'
   }
 });

@@ -25,12 +25,10 @@ export default function Cell(props: Props) {
   return <View style={[styles.container, containerStyle]}>{content}</View>;
 }
 
-const CELL_HEIGHT = 32;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 2,
-    height: CELL_HEIGHT,
     alignItems: 'center',
     justifyContent: 'center'
   },
