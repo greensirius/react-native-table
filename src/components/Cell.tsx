@@ -18,7 +18,9 @@ export default function Cell(props: Props) {
   let {children, containerStyle, contentStyle} = props;
   let content =
     typeof children === 'string' ? (
-      <Text style={[styles.text, contentStyle]}>{children}</Text>
+      <Text style={[styles.text, contentStyle]} numberOfLines={1}>
+        {children}
+      </Text>
     ) : (
       React.Children.only(children)
     );
@@ -28,8 +30,7 @@ export default function Cell(props: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 2,
-    alignItems: 'center',
+    padding: 5,
     justifyContent: 'center'
   },
   text: {
