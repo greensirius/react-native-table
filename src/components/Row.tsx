@@ -20,7 +20,9 @@ export default function Row(props: Props) {
     return keys.map((key, index) => <Cell key={index}>{params[key]}</Cell>);
   };
   let extractArrayData = (params: any) => {
-    return params.map((column, index) => <Cell key={index}>{column}</Cell>);
+    return params.map((column: CellContent, index: number) => (
+      <Cell key={index}>{column}</Cell>
+    ));
   };
   let content = isObject(rowData)
     ? extractObjectData(rowData)
