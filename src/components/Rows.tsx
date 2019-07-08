@@ -12,9 +12,9 @@ type Props = {
 
 export default function Rows(props: Props) {
   let {data, colors} = props;
-  let rowColors = colors ? colors : ['#BBB', '#FFF'];
+  let rowColors = colors ? colors : ['#FFF'];
   let tableRows = data.map((row, index) => {
-    let backgroundColor = index % 2 === 1 ? rowColors[0] : rowColors[1];
+    let backgroundColor = rowColors[index % rowColors.length];
     return <Row key={index} rowData={row} rowStyle={{backgroundColor}} />;
   });
   return <View style={styles.container}>{tableRows}</View>;
