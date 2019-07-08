@@ -8,13 +8,13 @@ type RowContent = ObjectOf<CellContent> | Array<CellContent>;
 type Props = {
   rowData: RowContent;
   rowHeight?: number;
-  rowStyle?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 };
 
 const ROW_HEIGHT = 32;
 
 export default function Row(props: Props) {
-  let {rowData, rowHeight, rowStyle} = props;
+  let {rowData, rowHeight, style} = props;
   let extractObjectData = (params: RowContent) => {
     let keys = Object.keys(params);
     return keys.map((key, index) => <Cell key={index}>{params[key]}</Cell>);
@@ -31,7 +31,7 @@ export default function Row(props: Props) {
     : null;
   return (
     <View
-      style={[styles.rowContainer, rowStyle, {height: rowHeight || ROW_HEIGHT}]}
+      style={[styles.rowContainer, style, {height: rowHeight || ROW_HEIGHT}]}
     >
       {content}
     </View>
